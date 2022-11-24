@@ -3,7 +3,7 @@ import { useState } from 'react'
 const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
   const [activeSize, setActiveSize] = useState(0);
   const [activeType, setActiveType] = useState(0);
-  const typesText = ['Tонкая','Традиционная'];
+  const typesText = ['Thin','Traditional'];
 
   return (
     <div className="pizza-block">
@@ -26,12 +26,12 @@ const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
               key={index}
               onClick={() => setActiveSize(index) }
             >
-              {`${i} см `}
+              {`${i} sm `}
             </li>)}
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">{`от ${price} ₽`}</div>
+        <div className="pizza-block__price">{`from ${price} $`}</div>
         <div className="button button--outline button--add">
           <svg
             width="12"
@@ -45,7 +45,7 @@ const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Add</span>
           <i>2</i>
         </div>
       </div>
