@@ -11,7 +11,7 @@ const Categories = ({ categoryId, onClickCategory, categoriesArr }) => {
              onClick={() => onClickCategory(id)}
              className={ categoryId === id ? "active" : ""}
            >
-             { i }
+             {i}
            </li>)
         }
       </ul>

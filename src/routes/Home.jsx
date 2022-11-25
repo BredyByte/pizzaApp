@@ -2,11 +2,13 @@ import Sort from '../components/Sort';
 import Categories from '../components/Categories';
 import Skeleton from '../components/Skeleton';
 import PizzaBlock from '../components/PizzaBlock';
-import Search from '../components/Search';
 import Pagination from '../components/Pagination';
+import Search from '../components/Search'
 import { useEffect, useState } from 'react';
+import { useOutletContext  } from 'react-router-dom';
 
 const Home = () => {
+  const [searchValue, setSearchValue] = useOutletContext();
   const [items, setItems] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
@@ -14,7 +16,6 @@ const Home = () => {
     name: 'Popularity',
     sortProperty: 'rating'
   });
-  const [searchValue, setSearchValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
 
@@ -45,8 +46,8 @@ const Home = () => {
       <div className="content__top">
         <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
         <Sort value={sortType} onChangeSort={setSortType} />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       </div>
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       <h2 className="content__title">{ categoriesArr[categoryId]}</h2>
       <div className="content__items">
         {
