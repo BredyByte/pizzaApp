@@ -41,6 +41,7 @@ const Home = () => {
     window.scrollTo(0,0);
   }, [categoryId, sort, searchValue, currentPage]);
   return (
+
     <>
       <div className="content__top">
         <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
