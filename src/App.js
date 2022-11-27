@@ -7,7 +7,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   return (
     <div className="wrapper">
-      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Header/>
       <div className="content">
         <div className="container">
           <Outlet context={[searchValue, setSearchValue]}/>

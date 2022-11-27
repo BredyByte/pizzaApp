@@ -3,19 +3,18 @@ import Categories from '../components/Categories';
 import Skeleton from '../components/Skeleton';
 import PizzaBlock from '../components/PizzaBlock';
 import Pagination from '../components/Pagination';
-import Search from '../components/Search'
+import Search from '../components/Search';
+
 import { useEffect, useState } from 'react';
-import { useOutletContext  } from 'react-router-dom';
-import { setCategoryId } from '../store/slices/filterSlice'
-import { useSelector, useDispatch } from 'react-redux'
+import { setCategoryId, setPageCount } from '../store/slices/filterSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { categoryId, sort } = useSelector(state => state.filter);
-  const [searchValue, setSearchValue] = useOutletContext();
+  const { categoryId, sort, searchValue, pageCount } = useSelector(state => state.filter);
   const [items, setItems] = useState([]);
   const [isLoading, setIsloading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
 
 
   const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
@@ -31,22 +30,20 @@ const Home = () => {
     const category = categoryId > 0 ? `&category=${categoryId}` : '';
     const search =  searchValue ? `&search=${searchValue}`: '';
 
-
-    fetch(`https://637ce41a72f3ce38eab0b9e2.mockapi.io/items?page=${currentPage}&limit=4${category}&sortBy=${sortBy}&order=${order}${search}`)
-      .then(res => res.json())
+    axios.get(`https://637ce41a72f3ce38eab0b9e2.mockapi.io/items?page=${pageCount}&limit=4${category}&sortBy=${sortBy}&order=${order}${search}`)
       .then(res => {
-        setItems(res);
+        setItems(res.data);
         setIsloading(false);
-      });
+      })
     window.scrollTo(0,0);
-  }, [categoryId, sort, searchValue, currentPage]);
+  }, [categoryId, sort, searchValue, pageCount]);
   return (
 
     <>
       <div className="content__top">
         <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
         <Sort/>
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search />
       </div>
       <h2 className="content__title">{ categoriesArr[categoryId]}</h2>
       <div className="content__items">
@@ -56,7 +53,7 @@ const Home = () => {
             : items.map(data => <PizzaBlock key={data.id} {...data} />)
         }
       </div>
-      <Pagination onChangePage={setCurrentPage} />
+      <Pagination onChangePage={setPageCount} dispatch={dispatch} currentPage={pageCount} />
     </>
   )
 }
