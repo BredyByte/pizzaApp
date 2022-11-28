@@ -1,6 +1,9 @@
 import filter from './slices/filterSlice';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
+
 
 export const store = configureStore({
-  reducer: { filter }
+  reducer: { filter },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 });
