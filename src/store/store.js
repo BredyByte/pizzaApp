@@ -5,5 +5,5 @@ import logger from 'redux-logger';
 
 export const store = configureStore({
   reducer: { filter },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat()
 });
