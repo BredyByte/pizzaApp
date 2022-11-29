@@ -8,8 +8,8 @@ import Search from '../components/Search';
 import { useEffect, useRef, useState } from 'react'
 import qs from 'qs';
 import { setCategoryId, setPageCount, setFilters } from '../store/slices/filterSlice';
+import { fetchPizzas } from '../store/slices/pizzaSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -18,28 +18,27 @@ const Home = () => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
   const { categoryId, sort, searchValue, pageCount } = useSelector(state => state.filter);
-
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsloading] = useState(true);
+  const { items, status } = useSelector(state => state.pizza);
 
   const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
   const onClickCategory = (index) => {
     dispatch(setCategoryId(index));
   };
 
-  const fetchPiazzas = () => {
-    setIsloading(true);
-
+  const getPizzas = async () => {
     const sortBy = sort.sortProperty.replace('-','');
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `&category=${categoryId}` : '';
     const search =  searchValue ? `&search=${searchValue}`: '';
 
-    axios.get(`https://637ce41a72f3ce38eab0b9e2.mockapi.io/items?page=${pageCount}&limit=4${category}&sortBy=${sortBy}&order=${order}${search}`)
-      .then(res => {
-        setItems(res.data);
-        setIsloading(false);
-      });
+    dispatch(fetchPizzas({
+      sortBy,
+      order,
+      category,
+      search,
+      pageCount
+    }));
+    window.scrollTo(0,0);
   }
 
   useEffect(() => {
@@ -71,7 +70,7 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0,0);
     if(!isSearch.current) {
-      fetchPiazzas();
+      getPizzas();
     }
     isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, pageCount]);
@@ -81,21 +80,28 @@ const Home = () => {
 
   return (
     <>
-      <div className="content__top">
-        <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
-        <Sort/>
-        <Search />
-      </div>
-      <h2 className="content__title">{ categoriesArr[categoryId]}</h2>
-      <div className="content__items">
-        {
-          isLoading
-            ? skeletons
-            : pizzas
-        }
-      </div>
-      <Pagination onChangePage={setPageCount} dispatch={dispatch} currentPage={pageCount} />
+      {
+        status === "error"
+          ? <div><h1>Error</h1></div>
+          : <>
+              <div className="content__top">
+                <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
+                <Sort/>
+                <Search />
+              </div>
+              <h2 className="content__title">{ categoriesArr[categoryId]}</h2>
+              <div className="content__items">
+                {
+                  (status === 'loading')
+                    ? skeletons
+                    : pizzas
+                }
+              </div>
+              <Pagination onChangePage={setPageCount} dispatch={dispatch} currentPage={pageCount} />
+            </>
+      }
     </>
+
   )
 }
 

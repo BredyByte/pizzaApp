@@ -1,10 +1,11 @@
 import filter from './slices/filterSlice';
 import cart from './slices/cartSlice';
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import pizza from './slices/pizzaSlice';
+import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
 
 export const store = configureStore({
-  reducer: { filter, cart },
+  reducer: { filter, cart, pizza },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 });
