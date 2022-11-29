@@ -1,9 +1,30 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../store/slices/cartSlice';
 
-const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
+const typeNames = ['Thin','Traditional'];
+const sizesValues = ['26 sm', '30 sm', '40 sm'];
+
+const PizzaBlock = ({ id, imageUrl, name, types, sizes, price }) => {
+  const dispatch = useDispatch();
+  const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id));
+
+  const addedCount = cartItem ? cartItem.count : 0;
+
   const [activeSize, setActiveSize] = useState(0);
   const [activeType, setActiveType] = useState(0);
-  const typesText = ['Thin','Traditional'];
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      imageUrl,
+      name,
+      price,
+      type: typeNames[activeType],
+      size: sizesValues[activeSize]
+    }
+    dispatch(addItem(item));
+  }
 
   return (
     <div className="pizza-block">
@@ -16,7 +37,7 @@ const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
       <div className="pizza-block__selector">
         <ul>
           {
-            types.map(i => <li className={activeType === i ? "active" : ""} key={i} onClick={() => setActiveType(i)} >{ typesText[i] }</li>)
+            types.map(i => <li className={activeType === i ? "active" : ""} key={i} onClick={() => setActiveType(i)} >{ typeNames[i] }</li>)
           }
         </ul>
         <ul>
@@ -32,7 +53,7 @@ const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">{`from ${price} $`}</div>
-        <div className="button button--outline button--add">
+        <div className="button button--outline button--add" onClick={onClickAdd} >
           <svg
             width="12"
             height="12"
@@ -46,7 +67,7 @@ const PizzaBlock = ({imageUrl, name, types, sizes,price}) => {
             />
           </svg>
           <span>Add</span>
-          <i>2</i>
+          {addedCount > 0 && <i>{addedCount}</i>}
         </div>
       </div>
     </div>
