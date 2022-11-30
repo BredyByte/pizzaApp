@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  searchValue: '',
+  pageCount: 1,
   categoryId: null,
   sort: {
     name: 'Popularity',
     sortProperty: 'rating'
   },
-  searchValue: '',
-  pageCount: 1,
 }
 
 const filterSlice = createSlice({

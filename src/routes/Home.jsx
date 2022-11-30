@@ -5,6 +5,7 @@ import PizzaBlock from '../components/PizzaBlock';
 import Pagination from '../components/Pagination';
 import Search from '../components/Search';
 import ErrorPage from '../components/ErrorPage';
+import selectors from '../store/selectors';
 
 import { useEffect, useRef, useState } from 'react'
 import qs from 'qs';
@@ -18,8 +19,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-  const { categoryId, sort, searchValue, pageCount } = useSelector(state => state.filter);
-  const { items, status } = useSelector(state => state.pizza);
+  const { categoryId, sort, searchValue, pageCount } = useSelector(selectors.filterSelector);
+  const { items, status } = useSelector(selectors.pizzaSelector);
 
   const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
   const onClickCategory = (index) => {
