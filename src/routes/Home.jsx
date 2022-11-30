@@ -4,6 +4,7 @@ import Skeleton from '../components/Skeleton';
 import PizzaBlock from '../components/PizzaBlock';
 import Pagination from '../components/Pagination';
 import Search from '../components/Search';
+import ErrorPage from '../components/ErrorPage';
 
 import { useEffect, useRef, useState } from 'react'
 import qs from 'qs';
@@ -76,13 +77,16 @@ const Home = () => {
   }, [categoryId, sort.sortProperty, searchValue, pageCount]);
 
   const pizzas = items.map(data => <PizzaBlock key={data.id} {...data} />);
-  const skeletons = [...new Array(6)].map((_,index) => <Skeleton key={index}/>)
+  const skeletons = [...new Array(4)].map((_,index) => <Skeleton key={index}/>)
 
   return (
     <>
       {
         status === "error"
-          ? <div><h1>Error</h1></div>
+          ? <ErrorPage
+            title="Pizzas not found"
+            message="Someone stole all our pizzas... Don't worry, we'll find the thief soon."
+          />
           : <>
               <div className="content__top">
                 <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />

@@ -1,6 +1,8 @@
-import CartEmpty from '../../components/CartEmpty';
+import ErrorPage from '../../components/ErrorPage';
 import CartItem from '../../components/CartItem';
 import { clearItems } from '../../store/slices/cartSlice';
+import cartEmptyImg from '../../assets/img/empty-cart.png';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
@@ -19,10 +21,14 @@ const Cart = () => {
 
   if(!totalPrice) {
     return (
-      <CartEmpty/>
+      <ErrorPage
+        backBtn={true}
+        img={cartEmptyImg}
+        message="Probably you haven't placed an order yet."
+        title="The cart is empty"
+      />
     )
   }
-
   return (
     <>
       <div className="cart">
@@ -57,7 +63,7 @@ const Cart = () => {
             <span> Total Price: <b>{`${totalPrice} $`}</b> </span>
           </div>
           <div className="cart__bottom-buttons">
-            <Link to="/" className="button button--outline button--add go-back-btn">
+            <Link className="button button--outline button--add go-back-btn" to="/" >
               <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
