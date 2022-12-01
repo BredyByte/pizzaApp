@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../store/slices/cartSlice';
-import selectors from '../store/selectors';
 import { Link } from 'react-router-dom';
+
+import selectors from '../../store/selectors';
+import { addItem } from '../../store/slices/cartSlice';
 
 const typeNames = ['Thin','Traditional'];
 

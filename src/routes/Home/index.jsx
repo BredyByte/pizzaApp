@@ -7,7 +7,7 @@ import Search from '../../components/Search';
 import ErrorPage from '../../components/ErrorPage';
 import selectors from '../../store/selectors';
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import qs from 'qs';
 import { setCategoryId, setPageCount, setFilters } from '../../store/slices/filterSlice';
 import { fetchPizzas } from '../../store/slices/pizzaSlice';
@@ -17,7 +17,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useNavigate();
+  const location = useLocation();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
   const { categoryId, sort, searchValue, pageCount } = useSelector(selectors.filterSelector);
@@ -57,11 +57,11 @@ const Home = () => {
       navigate(`?${queryString}`);
     }
     isMounted.current = true;
-  }, [categoryId, sort.sortProperty, pageCount]);
+  }, [categoryId, sort.sortProperty, pageCount, navigate]);
 
   useEffect(() => {
     if(location.search) {
-      const params = qs.parse(location.searchsubstring(1));
+      const params = qs.parse(location.search.substring(1));
       const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
       dispatch(
         setFilters({
@@ -71,7 +71,7 @@ const Home = () => {
       );
       isSearch.current = true
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo(0,0);

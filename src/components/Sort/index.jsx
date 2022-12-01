@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { setSort } from '../store/slices/filterSlice';
+import { setSort } from '../../store/slices/filterSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 export const sortList = [
@@ -53,24 +53,24 @@ const Sort = () => {
         <b>Sorted by:</b>
         <span>{sortName}</span>
       </div>
-        {
-          open &&
-          <div className="sort__popup">
-            <ul>
-              {
-                sortList.map((obj, i) => (
-                  <li
-                    key={i}
-                    onClick={() => onClickListItem(obj)}
-                    className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
-                  >
-                    {obj.name}
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        }
+      {
+        open &&
+        <div className="sort__popup">
+          <ul>
+            {
+              sortList.map((obj, i) => (
+                <li
+                  key={i}
+                  onClick={() => onClickListItem(obj)}
+                  className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
+                >
+                  {obj.name}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      }
     </div>
   );
 }
