@@ -8,6 +8,7 @@ import NotFound from './routes/NotFound';
 import App from './App';
 import Home from './routes/Home';
 import Cart from './routes/Cart';
+import PizzaPage from './routes/PizzaPage';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart/>
+      },
+      {
+        path: '/pizza/:id',
+        element: <PizzaPage/>
       }
     ]
   }

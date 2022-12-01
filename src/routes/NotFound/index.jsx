@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteError } from 'react-router-dom';
-import styles from './index.module.scss';
+import styles from './NotFound.module.scss';
 
 
 

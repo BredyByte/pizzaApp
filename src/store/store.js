@@ -7,5 +7,5 @@ import logger from 'redux-logger';
 
 export const store = configureStore({
   reducer: { filter, cart, pizza },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat()
 });

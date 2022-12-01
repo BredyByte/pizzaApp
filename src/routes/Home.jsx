@@ -12,11 +12,12 @@ import qs from 'qs';
 import { setCategoryId, setPageCount, setFilters } from '../store/slices/filterSlice';
 import { fetchPizzas } from '../store/slices/pizzaSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
   const { categoryId, sort, searchValue, pageCount } = useSelector(selectors.filterSelector);
@@ -26,6 +27,9 @@ const Home = () => {
   const onClickCategory = (index) => {
     dispatch(setCategoryId(index));
   };
+
+  const pizzas = items.map(data => <PizzaBlock key={data.id} {...data} />);
+  const skeletons = [...new Array(4)].map((_,index) => <Skeleton key={index}/>)
 
   const getPizzas = async () => {
     const sortBy = sort.sortProperty.replace('-','');
@@ -56,8 +60,8 @@ const Home = () => {
   }, [categoryId, sort.sortProperty, pageCount]);
 
   useEffect(() => {
-    if(window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
+    if(location.search) {
+      const params = qs.parse(location.searchsubstring(1));
       const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
       dispatch(
         setFilters({
@@ -76,9 +80,6 @@ const Home = () => {
     }
     isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, pageCount]);
-
-  const pizzas = items.map(data => <PizzaBlock key={data.id} {...data} />);
-  const skeletons = [...new Array(4)].map((_,index) => <Skeleton key={index}/>)
 
   return (
     <>
