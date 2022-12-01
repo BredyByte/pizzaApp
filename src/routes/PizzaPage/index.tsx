@@ -1,10 +1,14 @@
-import styles from './PizzaPage.module.scss';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
-const PizzaPage = () => {
-  const [data, setData] = useState({});
+const PizzaPage: React.FC = () => {
+  const [data, setData] = useState<{
+    imageUrl: string,
+    price: number,
+    name: string
+  }>();
+
   const { id } = useParams();
   const fetchData = async () => {
     try {
@@ -17,10 +21,17 @@ const PizzaPage = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(!data) {
+    return (
+      <h3>Loading...</h3>
+    )
+  }
   return (
     <div>
       <h3>{data.name}</h3>
       <img src={data.imageUrl} alt=""/>
+      <p>{data.price}</p>
     </div>
   )
 }
