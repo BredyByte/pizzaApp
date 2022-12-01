@@ -1,16 +1,16 @@
-import Sort, { sortList } from '../components/Sort'
-import Categories from '../components/Categories';
-import Skeleton from '../components/Skeleton';
-import PizzaBlock from '../components/PizzaBlock';
-import Pagination from '../components/Pagination';
-import Search from '../components/Search';
-import ErrorPage from '../components/ErrorPage';
-import selectors from '../store/selectors';
+import Sort, { sortList } from '../../components/Sort';
+import Categories from '../../components/Categories';
+import Skeleton from '../../components/Skeleton';
+import PizzaBlock from '../../components/PizzaBlock';
+import Pagination from '../../components/Pagination';
+import Search from '../../components/Search';
+import ErrorPage from '../../components/ErrorPage';
+import selectors from '../../store/selectors';
 
 import { useEffect, useRef, useState } from 'react'
 import qs from 'qs';
-import { setCategoryId, setPageCount, setFilters } from '../store/slices/filterSlice';
-import { fetchPizzas } from '../store/slices/pizzaSlice';
+import { setCategoryId, setPageCount, setFilters } from '../../store/slices/filterSlice';
+import { fetchPizzas } from '../../store/slices/pizzaSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -107,8 +107,6 @@ const Home = () => {
             </>
       }
     </>
-
   )
 }
-
 export default Home
