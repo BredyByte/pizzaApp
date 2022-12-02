@@ -3,6 +3,27 @@
   margin: 0 auto;
   text-align: center;
   padding: 0 20px;
+
+  @media(max-width: 630px) {
+    &{
+      padding: 0;
+    }
+    .title {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .message {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .img {
+      width: 200px;
+    }
+    .btn {
+      font-size: 16px;
+    }
+
+  }
 }
 .title {
   font-size: 32px;
@@ -16,8 +37,6 @@
   margin-bottom: 10px;
 }
 .btn {
-  padding: 12px 0 14px;
-  width: 230px;
   margin: 0 auto;
   font-weight: 600;
   font-size: 18px;

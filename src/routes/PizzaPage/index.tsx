@@ -2,12 +2,15 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Lottie from "lottie-react";
-import PizzaIconLoading from '../../assets/gif/PizzaIconLoading.json';
+import PizzaIconLoading from '../../assets/gif/PizzaPreloader.json';
 import { SkeletonCircle, SkeletonText } from '../../components/PizzaPageSkeleton';
 
 import styles from './PizzaPage.module.scss';
 
 const PizzaPage: React.FC = () => {
+  const [matches, setMatches] = useState(
+      window.matchMedia("(max-width: 830px)").matches
+  );
   const [data, setData] = useState<{
     imageUrl: string,
     price: number,
@@ -20,17 +23,23 @@ const PizzaPage: React.FC = () => {
       }
     ]
   }>();
-
   const { id } = useParams();
+
   const fetchData = () => {
     try {
       setTimeout(() =>
           axios.get(`https://637ce41a72f3ce38eab0b9e2.mockapi.io/items/${id}`)
-              .then(res => setData(res.data)), 500);
+              .then(res => setData(res.data)), 600);
     } catch(e) {
       console.log(e);
     }
   }
+
+  useEffect(() => {
+    window
+      .matchMedia("(max-width: 830px)")
+      .addEventListener('change', e => setMatches( e.matches ));
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -39,8 +48,13 @@ const PizzaPage: React.FC = () => {
   if(!data) {
     return (
         <div className={styles.loadingContainer}>
-          <SkeletonCircle/>
-          <SkeletonText/>
+          {matches
+              ? <Lottie animationData={PizzaIconLoading} loop={true} />
+              : <>
+                  <SkeletonCircle/>
+                  <SkeletonText/>
+                </>
+          }
         </div>
     )
   }
@@ -65,8 +79,14 @@ const PizzaPage: React.FC = () => {
             {
               data.structure.map(i => (
                   <li className={styles.compositionItem} key={i.id}>
-                    <img className={styles.compositionItemImg} src={i.img} alt=""/>
-                    <p className={styles.compositionItemTitle}>{i.title}</p>
+                    <img
+                        className={styles.compositionItemImg}
+                        src={i.img}
+                        alt=""
+                    />
+                    <p className={styles.compositionItemTitle}>
+                      {i.title}
+                    </p>
                   </li>
               ))
             }

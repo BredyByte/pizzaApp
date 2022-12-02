@@ -11,11 +11,11 @@ export const SkeletonText = (props) => (
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="10" y="7" rx="10" ry="10" width="340" height="28" />
-    <rect x="105" y="50" rx="10" ry="10" width="150" height="22" />
-    <rect x="20" y="88" rx="10" ry="10" width="320" height="140" />
-    <rect x="35" y="244" rx="10" ry="10" width="290" height="22" />
-    <rect x="20" y="278" rx="10" ry="10" width="320" height="44" />
+    <rect x="10" y="26" rx="10" ry="10" width="340" height="34" />
+    <rect x="105" y="74" rx="10" ry="10" width="150" height="24" />
+    <rect x="20" y="116" rx="10" ry="10" width="320" height="100" />
+    <rect x="35" y="230" rx="10" ry="10" width="290" height="22" />
+    <rect x="20" y="260" rx="10" ry="10" width="320" height="44" />
   </ContentLoader>
 )
 
@@ -30,6 +30,6 @@ export const SkeletonCircle  = (props) => (
     foregroundColor="#ecebeb"
     {...props}
   >
-    <circle cx="160" cy="160" r="160" />
+    <circle cx="150" cy="170" r="140" />
   </ContentLoader>
 )

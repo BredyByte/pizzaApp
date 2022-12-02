@@ -16,7 +16,7 @@
 
   .imgContainer {
     .img {
-      max-width: 350px;
+      max-width: 300px;
     }
   }
   .textContainer {
@@ -40,11 +40,6 @@
         flex-wrap: wrap;
         .compositionItem {
           position: relative;
-          cursor: pointer;
-
-          .compositionItemImg {
-            width: 35px;
-          }
 
           .compositionItemTitle {
             position: absolute;
@@ -74,10 +69,12 @@
             }
           }
 
-
-          &:hover {
-            .compositionItemTitle {
+          .compositionItemImg {
+            width: 35px;
+            cursor: pointer;
+            &:hover + .compositionItemTitle  {
               opacity: 1;
+              z-index: 1;
             }
           }
         }
@@ -90,5 +87,29 @@
       margin-bottom: 10px;
     }
 
+  }
+
+  @media(max-width: 850px) {
+    &{
+      flex-direction: column;
+
+      .imgContainer {
+        text-align: center;
+      }
+    }
+  }
+  @media(max-width: 530px) {
+    .imgContainer {
+      width: 100%;
+    }
+    .img {
+      width: 100%;
+    }
+    .pizzaName {
+      font-size: 28px;
+    }
+    .sectionTitle {
+      font-size: 18px;
+    }
   }
 }
