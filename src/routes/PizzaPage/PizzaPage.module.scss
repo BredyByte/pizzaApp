@@ -1,0 +1,94 @@
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    width: 350px;
+    height: auto;
+  }
+}
+.root {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 0 30px;
+
+  .imgContainer {
+    .img {
+      max-width: 350px;
+    }
+  }
+  .textContainer {
+    text-align: center;
+
+    .pizzaName {
+      font-weight: 900;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .description {
+      margin-bottom: 10px;
+    }
+
+    .composition {
+      .compositionList {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        .compositionItem {
+          position: relative;
+          cursor: pointer;
+
+          .compositionItemImg {
+            width: 35px;
+          }
+
+          .compositionItemTitle {
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background-color: #fe5f1e;
+            color: #fff;
+            border-radius: 10px;
+            border: 2px solid #fe5f1e;
+            opacity: 0;
+            transition: all .2s ease-in-out;
+            font-weight: 600;
+
+            &:after {
+              content: '';
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 10px 10px 10px;
+              border-color: transparent transparent #fe5f1e transparent;
+            }
+          }
+
+
+          &:hover {
+            .compositionItemTitle {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .sectionTitle {
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+  }
+}

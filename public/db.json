@@ -2,7 +2,7 @@
   {
     "id": "0",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-    "name": "Pepperoni Fresh with pepper",
+    "name": "Pizza Ortolana",
     "types": [
       0,
       1
@@ -14,12 +14,50 @@
     ],
     "price": 12,
     "category": 1,
-    "rating": 4
+    "rating": 4,
+    "description": "The name of this classic Italian pizza translates to greengrocer’s pizza. It consists of a basic pizza dough which is smeared with tomato sauce, topped with mozzarella and grilled slices of eggplant and zucchini, then baked. Lastly, pizza ortolana is typically drizzled with olive oil and topped with fresh basil.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/128/1046/1046790.png",
+        "title": "Tomato sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/680/680932.png",
+        "title": "Zucchini",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1811/1811957.png",
+        "title": "Pepperoni",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Mozzarella",
+        "id": 5
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6127/6127642.png",
+        "title": "Basil",
+        "id": 6
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/8010/8010873.png",
+        "title": "Olive oil",
+        "id": 7
+      }
+    ]
   },
   {
     "id": "1",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg",
-    "name": "Cheese",
+    "name": "Garlic Cheese",
     "types": [
       1
     ],
@@ -29,12 +67,40 @@
     ],
     "price": 6,
     "category": 2,
-    "rating": 6
+    "rating": 6,
+    "description": "Garlic fingers is a popular food item throughout Atlantic Canada. Even though it looks like a pizza, garlic fingers are cut in strips or fingers instead of being cut into slices like a regular pizza. The dish consists of pizza dough that is topped with cheese, garlic butter, and parsley.\n\nIt is baked until the cheese melts, and it can then be additionally topped with dill, vegetables, or pieces of bacon. Garlic fingers are often consumed with regular pizza as a side dish, and they are typically accompanied by dipping sauces such as Donair or marinara.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Cheese",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6127/6127642.png",
+        "title": "Parsley",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/5461/5461101.png",
+        "title": "Butter",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3032/3032520.png",
+        "title": "Garlic",
+        "id": 5
+      }
+    ]
   },
   {
     "id": "2",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
-    "name": "Barbecue Chicken",
+    "name": "Chicago Thin Crust Pizza",
     "types": [
       0
     ],
@@ -44,12 +110,40 @@
     ],
     "price": 6,
     "category": 1,
-    "rating": 4
+    "rating": 4,
+    "description": "Apart from the crispy, almost cracker-thin crust, this Chicago-style pizza features a heavily herbed, zesty tomato sauce and generous amounts of shredded mozzarella. As for the other toppings, pepperoni is widely available but often comes second to crumbled Italian sausage, and then there's also bacon, prosciutto, and a variety of vegetables.\n\nThe number one choice among locals, Chicago thin crust is typically cut into squares—the so-called box cut, tavern-style, or party cut—and unlike its New York counterpart, it doesn't fold up. In fact, the Chicagoans would say you should \"fold your laundry, not your pizza\"",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/2755/2755300.png",
+        "title": "Barbeque sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1811/1811957.png",
+        "title": "Pepperoni piccante",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3372/3372338.png",
+        "title": "Prosciutto crudo",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Mozzarella",
+        "id": 5
+      }
+    ]
   },
   {
     "id": "3",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg",
-    "name": "Sweet and sour chicken",
+    "name": "Stromboli",
     "types": [
       1
     ],
@@ -60,12 +154,35 @@
     ],
     "price": 6,
     "category": 1,
-    "rating": 2
+    "rating": 2,
+    "description": "Somewhat similar to a calzone, the American stromboli is a savory type of turnover filled with classic pizza ingredients: mozzarella or other types of cheese, Italian meats like salami, pepperoni, bresaola, and capocollo, and sometimes even vegetables, while the marinara sauce is served on the side, rather than baked inside with the filling.\n\nThe dough can be either Italian bread dough or standard pizza dough, and before baking, the finished product is rolled into a loaf, similar to that of a jellyroll. Unlike calzone, stromboli did not originate from Italy, but supposedly from suburban Philadelphia where it was invented in the 1950s and named after one of Roberto Rossellini's movies.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3082/3082037.png",
+        "title": "Sour-sweet sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6178/6178767.png",
+        "title": "Chicken meat",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Adyghe cheese",
+        "id": 4
+      }
+    ]
   },
   {
     "id": "4",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
-    "name": "Cheeseburger pizza",
+    "name": "Pugliese Pizza",
     "types": [
       0,
       1
@@ -76,13 +193,51 @@
       40
     ],
     "price": 8,
-    "category": 3,
-    "rating": 8
+    "category": 1,
+    "rating": 8,
+    "description": "As the name suggests, this classic Italian pizza variety is named after the region of Puglia. In its simplest form, the basic pizza dough is topped with tomato sauce, mozzarella, and red onion rings. Typical variations include replacing mozzarella with Provolone or Pecorino cheese and adding other ingredients such as anchovies, oregano, capers, or olives.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/2079/2079331.png",
+        "title": "Pickles",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/2522/2522907.png",
+        "title": "Onion",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Swiss cheese Emmental",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1202/1202125.png",
+        "title": "Tomatoes",
+        "id": 5
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3372/3372338.png",
+          "title": "Ham",
+        "id": 6
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/8010/8010873.png",
+        "title": "Olive oil",
+        "id": 7
+      }
+    ]
   },
   {
     "id": "5",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
-    "name": "Crazy pepperoni",
+    "name": "Pizza alla diavola",
     "types": [
       0
     ],
@@ -91,13 +246,46 @@
       40
     ],
     "price": 8,
-    "category": 1,
-    "rating": 2
+    "category": 4,
+    "rating": 2,
+    "description": "Diavola is a variety of Italian pizza that is traditionally topped with tomato sauce, mozzarella cheese, spicy salami, and hot chili peppers. Black olives are optional and can be added for extra flavor.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/128/1046/1046790.png",
+        "title": "Tomato sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1811/1811957.png",
+        "title": "Pepperoni piccante",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/8010/8010873.png",
+        "title": "Olive oil",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Mozzarella",
+        "id": 5
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/433/433671.png",
+        "title": "Hot pepper",
+        "id": 6
+      }
+    ]
   },
   {
     "id": "6",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg",
-    "name": "Pepperoni",
+    "name": "Detroit-Style Pizza",
     "types": [
       0,
       1
@@ -109,12 +297,35 @@
     ],
     "price": 10,
     "category": 1,
-    "rating": 9
+    "rating": 9,
+    "description": "Detroit-style pizza is a square pizza characterized by a thick deep-dish crisp crust and inverted toppings. Cheese is applied directly to the top of the dough, followed by a thick tomato sauce that is seasoned with garlic and spices. The most common topping is pepperoni, put either on top of the sauce or buried underneath the cheese.\n\nDetroit-style pizza can be traced back to Buddy's Rendezvous in 1946, and thanks to its popularity, it is now available nationwide. This dish is best paired with beer or wine.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/128/1046/1046790.png",
+        "title": "Tomato sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1811/1811957.png",
+        "title": "Pepperoni",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Mozzarella",
+        "id": 4
+      }
+    ]
   },
   {
     "id": "7",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
-    "name": "Margarita",
+    "name": "Pizza carbonara",
     "types": [
       0,
       1
@@ -126,12 +337,45 @@
     ],
     "price": 8,
     "category": 2,
-    "rating": 10
+    "rating": 10,
+    "description": "This pizza variety is a variation on the famous Italian pasta dish known as pasta carbonara. Pizza carbonara consists of a basic pizza dough covered with tomato sauce and topped with slices of salty pancetta, eggs, and cheese. Mozzarella and Grana Padano are the traditional cheese choices for this pizza variety, although Provolone or Pecorino Romano cheeses are also commonly used.\n\nThe pizza is usually drizzled with olive oil and sprinkled with basil or parsley and black pepper, another essential trait of pasta carbonara. The eggs are typically raw and cooked directly onto the pizza, which requires skillful timing, but some versions call for boiled and sliced eggs, which are then arranged on top of the pizza.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/128/1046/1046790.png",
+        "title": "Tomato sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1202/1202125.png",
+        "title": "Tomatoes",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/8010/8010873.png",
+        "title": "Olive oil",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Pecorino Romano",
+        "id": 5
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/433/433671.png",
+        "title": "Pepper",
+        "id": 6
+      }
+    ]
   },
   {
     "id": "8",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/ec29465e-606b-4a04-a03e-da3940d37e0e.jpg",
-    "name": "Four Seasons",
+    "name": "Quattro stagioni pizza",
     "types": [
       0,
       1
@@ -142,13 +386,51 @@
       40
     ],
     "price": 10,
-    "category": 1,
-    "rating": 10
+    "category": 3,
+    "rating": 10,
+    "description": "Another popular variety of Italian pizza, quattro stagioni (lit. four seasons) is basically made with the same ingredients as the so-called pizza capricciosa, except it has toppings arranged into four sections, each representing a different season.\n\nAs with capricciosa, the ingredients include an ever-changing combination of tomatoes, mozzarella, mushrooms, artichokes, ham, and olives. Sometimes, these \"seasons\" are divided by thin strips of pizza dough.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/128/1046/1046790.png",
+        "title": "Tomato sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3372/3372338.png",
+        "title": "Prosciutto crudo",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/1148/1148257.png",
+        "title": "Olive",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Mozzarella",
+        "id": 5
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/7015/7015938.png",
+        "title": "Champignons",
+        "id": 6
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/2619/2619428.png",
+        "title": "Artichokes",
+        "id": 7
+      }
+    ]
   },
   {
     "id": "9",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
-    "name": "Vegetables and mushrooms",
+    "name": "Pizza vegetariana",
     "types": [
       0,
       1
@@ -160,6 +442,39 @@
     ],
     "price": 6,
     "category": 2,
-    "rating": 7
+    "rating": 7,
+    "description": "As the name suggests, this Italian pizza variety is created to appeal to the vegetarian palate. Pizza vegetariana consists of a basic pizza dough that is smeared with tomato sauce and topped with mozzarella and a combination of fresh, seasonal vegetables, typically zucchini, eggplants, and peppers, which are almost always pre-cooked.\n\nOther typical toppings include bell peppers, artichoke hearts, spinach, carrots, onions, mushrooms, capers, celery, olives, and oregano. The pizza is usually finished off with a drizzle of olive oil and some fresh basil leaves on top. Pizza vegetariana can easily become a vegan-friendly dish by omitting the mozzarella.",
+    "structure": [
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/3817/3817761.png",
+        "title": "Flour",
+        "id": 1
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/128/1046/1046790.png",
+        "title": "Tomato sauce",
+        "id": 2
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/680/680932.png",
+        "title": "Zucchini",
+        "id": 3
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/433/433674.png",
+        "title": "Eggplant",
+        "id": 4
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/6030/6030158.png",
+        "title": "Mozzarella",
+        "id": 5
+      },
+      {
+        "img": "https://cdn-icons-png.flaticon.com/512/433/433671.png",
+        "title": "Pepper",
+        "id": 6
+      }
+    ]
   }
 ]
