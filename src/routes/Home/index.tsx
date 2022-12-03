@@ -14,6 +14,23 @@ import { fetchPizzas } from '../../store/slices/pizzaSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+type StructureItem = {
+  id: number,
+  imageUrl: string,
+  name: string
+}
+type PizzaItems = {
+  id: string,
+  imageUrl: string,
+  name: string,
+  types: number[],
+  sizes: number[],
+  price: number,
+  rating: number,
+  description: string,
+  structure: StructureItem[]
+}
+
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,11 +41,12 @@ const Home = () => {
   const { items, status } = useSelector(selectors.pizzaSelector);
 
   const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
-  const onClickCategory = (index) => {
-    dispatch(setCategoryId(index));
+
+  const onClickCategory = (id: number) => {
+    dispatch(setCategoryId(id));
   };
 
-  const pizzas = items.map(data => <PizzaBlock key={data.id} {...data} />);
+  const pizzas = items.map((data:any)=> <PizzaBlock key={data.id} {...data} />);
   const skeletons = [...new Array(4)].map((_,index) => <Skeleton key={index}/>)
 
   const getPizzas = async () => {
@@ -37,13 +55,16 @@ const Home = () => {
     const category = categoryId > 0 ? `&category=${categoryId}` : '';
     const search =  searchValue ? `&search=${searchValue}`: '';
 
-    dispatch(fetchPizzas({
-      sortBy,
-      order,
-      category,
-      search,
-      pageCount
-    }));
+    dispatch(
+        // @ts-ignore
+        fetchPizzas({
+          sortBy,
+          order,
+          category,
+          search,
+          pageCount
+        })
+    );
     window.scrollTo(0,0);
   }
 

@@ -7,12 +7,16 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
 
-  const totalCount  = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item:{count: number}) => sum + item.count, 0);
   return (
     <div className="header">
       <div className="container">
         <Link className="header__logo" to="/" >
-          <img width="38" src={logo} alt="Pizza logo"/>
+          <img
+              width="55px"
+              src="https://cdn-icons-png.flaticon.com/512/3511/3511307.png"
+              onError={e => { e.currentTarget.src = logo }}
+              alt="Pizza logo"/>
           <div>
             <h1>React Pizza</h1>
             <p>The most delicious pizza in the universe</p>
@@ -20,6 +24,7 @@ const Header = () => {
         </Link>
         <Link className="header__cart button button--cart" to="/cart">
           <span>{`${totalPrice} $`}</span>
+
           <div className="button__delimiter"></div>
           <svg
             width="18"

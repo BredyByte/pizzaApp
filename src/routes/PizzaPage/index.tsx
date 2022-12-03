@@ -29,7 +29,7 @@ const PizzaPage: React.FC = () => {
     try {
       setTimeout(() =>
           axios.get(`https://637ce41a72f3ce38eab0b9e2.mockapi.io/items/${id}`)
-              .then(res => setData(res.data)), 600);
+              .then(res => setData(res.data)), 500);
     } catch(e) {
       console.log(e);
     }

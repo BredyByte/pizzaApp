@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { setSort } from '../../store/slices/filterSlice';
+import selectors from '../../store/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 
-export const sortList = [
+type SortItem = {
+  name: string;
+  sortProperty: string;
+}
+
+export const sortList: SortItem[] = [
   { name: 'Popularity (DESC)', sortProperty: 'rating' },
   { name: 'Popularity (ACS)', sortProperty: '-rating' },
   { name: 'Price (DESC)', sortProperty: 'price' },
@@ -13,18 +19,18 @@ export const sortList = [
 
 const Sort = () => {
   const dispatch = useDispatch();
-  const sortRef = useRef();
-  const sort = useSelector(state => state.filter.sort);
+  const sortRef = useRef<HTMLDivElement>(null);
+  const { sort } = useSelector(selectors.filterSelector);
   const [open, setOpen] = useState(false);
   const sortName = sort.name;
 
-  const onClickListItem = (i) => {
+  const onClickListItem = (i:SortItem) => {
     dispatch(setSort(i))
     setOpen(false);
   }
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: any) => {
       if (!e.path.includes(sortRef.current)) {
         setOpen(false);
       }
@@ -36,7 +42,7 @@ const Sort = () => {
   }, []);
 
   return (
-    <div ref={sortRef} className="sort">
+      <div ref={sortRef} className="sort">
       <div className="sort__label" onClick={() => setOpen(!open)}>
         <svg
           width="10"

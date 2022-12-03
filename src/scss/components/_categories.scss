@@ -18,14 +18,14 @@
         background-color: darken(#f9f9f9, 2%);
       }
 
-      &:active {
-        background-color: darken(#f9f9f9, 5%);
-      }
-
-      &.active {
-        background-color: #282828;
-        color: #fff;
-      }
+      //&:active {
+      //  background-color: darken(#f9f9f9, 5%);
+      //}
+      //
+      //&.active {
+      //  //background-color: #282828;
+      //  //color: #fff;
+      //}
     }
 
     @media (max-width: 1260px) {

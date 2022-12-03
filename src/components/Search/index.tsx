@@ -10,22 +10,22 @@ const Search = () => {
   const dispatch = useDispatch();
   const { searchValue } = useSelector(selectors.filterSelector);
   const state = useSelector(state => state);
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = () => {
     dispatch(setSearchValue(''));
     setValue('');
-    inputRef.current.focus();
+    inputRef.current?.focus();
   };
 
   const updateSearchValue = useCallback(
-    debounce((str) => {
+    debounce((str: string) => {
       dispatch(setSearchValue(str));
     }, 500),
     []
   );
 
-  const onChangeInput = (value) => {
+  const onChangeInput = (value: any) => {
     setValue(value);
     updateSearchValue(value);
   }
