@@ -20,8 +20,8 @@ const ErrorPage = ({title, img, message, backBtn}:ErrorProps) => {
       }
       {
         backBtn &&
-        <Link className={`${styles.btn} button`} to="/">
-          <span>Go back</span>
+        <Link className="btn" to="/">
+          Go back
         </Link>
       }
     </div>

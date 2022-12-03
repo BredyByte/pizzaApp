@@ -14,7 +14,7 @@ const Categories = ({ categoryId, onClickCategory, categoriesArr }:CategoriesPro
             <li
               key={id}
               onClick={() => onClickCategory(id)}
-              className={`${categoryId === id ? styles.active : ""} + ${styles.btn}`}
+              className={`${categoryId === id ? "active" : ""} btn`}
             >
               {i}
             </li>)
