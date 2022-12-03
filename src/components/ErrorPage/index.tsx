@@ -1,14 +1,15 @@
-import styles from './ErrorPage.module.scss';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './ErrorPage.module.scss';
 
-interface ErrorProps {
+type ErrorPageProps = {
     title: string,
     message: string,
     backBtn?: boolean,
     img?: string
 }
 
-const ErrorPage = ({title, img, message, backBtn}:ErrorProps) => {
+const ErrorPage: React.FC<ErrorPageProps> = ({title, img, message, backBtn}) => {
     console.log()
   return (
     <div className={styles.root}>

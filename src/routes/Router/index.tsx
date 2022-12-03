@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import Index from '../Index';
 import Home from '../Home';
@@ -5,12 +6,12 @@ import NotFound from '../NotFound';
 import Cart from '../Cart';
 import PizzaPage from '../PizzaPage';
 
-const Router = () => {
+const Router: React.FC = () => {
     const routes = useRoutes([
     {
       path: '/',
       element: <Index/>,
-      errorPage: <NotFound/>,
+      errorElement: <NotFound/>,
       children: [
         {
           path: '*',

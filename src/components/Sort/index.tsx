@@ -1,12 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { setSort } from '../../store/slices/filterSlice';
 import selectors from '../../store/selectors';
-import { useSelector, useDispatch } from 'react-redux';
 
 type SortItem = {
   name: string;
   sortProperty: string;
-}
+};
+
+type PopUpClick = MouseEvent & {
+  path: Node[]
+};
 
 export const sortList: SortItem[] = [
   { name: 'Popularity (DESC)', sortProperty: 'rating' },
@@ -17,11 +22,11 @@ export const sortList: SortItem[] = [
   { name: 'Alphabetical (ACS)', sortProperty: '-title' },
 ];
 
-const Sort = () => {
+const Sort: React.FC = () => {
   const dispatch = useDispatch();
-  const sortRef = useRef<HTMLDivElement>(null);
+  const sortRef = React.useRef<HTMLDivElement>(null);
   const { sort } = useSelector(selectors.filterSelector);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const sortName = sort.name;
 
   const onClickListItem = (i:SortItem) => {
@@ -29,9 +34,11 @@ const Sort = () => {
     setOpen(false);
   }
 
-  useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (!e.path.includes(sortRef.current)) {
+  React.useEffect(() => {
+    //typescript rewrite
+    const handleClickOutside = (event: MouseEvent) => {
+      const _event = event as PopUpClick;
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setOpen(false);
       }
     }

@@ -1,11 +1,13 @@
+import React from 'react';
 import styles from './Categories.module.scss';
-interface CategoriesProps {
+
+type CategoriesProps = {
     categoryId: number,
-    onClickCategory: any,
+    onClickCategory: (i: number) => void,
     categoriesArr: string[],
 }
 
-const Categories = ({ categoryId, onClickCategory, categoriesArr }:CategoriesProps) => {
+const Categories: React.FC<CategoriesProps> = ({ categoryId, onClickCategory, categoriesArr }) => {
   return (
     <div className="categories">
       <ul>

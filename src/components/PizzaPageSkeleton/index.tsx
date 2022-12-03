@@ -1,7 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-export const SkeletonText = ({props}: any) => (
+export const SkeletonText: React.FC = ({props}: any) => (
   <ContentLoader
     speed={2}
     width={360}
@@ -20,7 +20,7 @@ export const SkeletonText = ({props}: any) => (
 )
 
 
-export const SkeletonCircle  = ({props}: any) => (
+export const SkeletonCircle: React.FC  = ({props}: any) => (
   <ContentLoader
     speed={2}
     width={360}

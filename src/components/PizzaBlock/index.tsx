@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -7,7 +7,7 @@ import {addItem} from '../../store/slices/cartSlice';
 
 const typeNames = ['Thin', 'Traditional'];
 
-interface PizzaBlockProps {
+type PizzaBlockProps = {
     id: string,
     imageUrl: string,
     name: string,
@@ -16,14 +16,14 @@ interface PizzaBlockProps {
     price: number
 }
 
-const PizzaBlock = ({id, imageUrl, name, types, sizes, price}: PizzaBlockProps) => {
+const PizzaBlock: React.FC<PizzaBlockProps> = ({id, imageUrl, name, types, sizes, price}) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
     const addedCount = cartItem ? cartItem.count : 0;
 
-    const [activeSize, setActiveSize] = useState(0);
-    const [activeType, setActiveType] = useState(0);
+    const [activeSize, setActiveSize] = React.useState(0);
+    const [activeType, setActiveType] = React.useState(0);
 
     const onClickAdd = () => {
         const item = {

@@ -31,6 +31,9 @@ type PizzaItems = {
   structure: StructureItem[]
 }
 
+
+const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
+
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,8 +42,6 @@ const Home = () => {
   const isMounted = useRef(false);
   const { categoryId, sort, searchValue, pageCount } = useSelector(selectors.filterSelector);
   const { items, status } = useSelector(selectors.pizzaSelector);
-
-  const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
 
   const onClickCategory = (id: number) => {
     dispatch(setCategoryId(id));

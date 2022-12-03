@@ -1,17 +1,18 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Lottie from "lottie-react";
+
 import PizzaIconLoading from '../../assets/gif/PizzaPreloader.json';
 import { SkeletonCircle, SkeletonText } from '../../components/PizzaPageSkeleton';
 
 import styles from './PizzaPage.module.scss';
 
 const PizzaPage: React.FC = () => {
-  const [matches, setMatches] = useState(
+  const [matches, setMatches] = React.useState(
       window.matchMedia("(max-width: 830px)").matches
   );
-  const [data, setData] = useState<{
+  const [data, setData] = React.useState<{
     imageUrl: string,
     price: number,
     name: string,
@@ -35,13 +36,13 @@ const PizzaPage: React.FC = () => {
     }
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     window
       .matchMedia("(max-width: 830px)")
       .addEventListener('change', e => setMatches( e.matches ));
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     fetchData();
   }, []);
 
