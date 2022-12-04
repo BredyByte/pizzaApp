@@ -12,7 +12,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { totalPrice, items } = useSelector(selectors.cartSelector);
 
-  const totalCount  = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount  = items.reduce((sum: number, item: {count: number}) => sum + item.count, 0);
 
   const onClickClear = () => {
     if(window.confirm("Do you really want to empty the trash")) {
@@ -53,8 +53,8 @@ const Cart = () => {
         </div>
         <div className="content__items">
           {
-            items.map(i => {
-              return <CartItem key={i.id} {...i} />
+            items.map((data:any) => {
+              return <CartItem key={data.id} {...data} />
             })
           }
         </div>

@@ -1,25 +1,21 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setSort } from '../../store/slices/filterSlice';
-import selectors from '../../store/selectors';
+import { setSort, SortType, SortProperty } from '../../store/slices/filterSlice';
 
-type SortItem = {
-  name: string;
-  sortProperty: string;
-};
+import selectors from '../../store/selectors';
 
 type PopUpClick = MouseEvent & {
   path: Node[]
 };
 
-export const sortList: SortItem[] = [
-  { name: 'Popularity (DESC)', sortProperty: 'rating' },
-  { name: 'Popularity (ACS)', sortProperty: '-rating' },
-  { name: 'Price (DESC)', sortProperty: 'price' },
-  { name: 'Price (ACS)', sortProperty: '-price' },
-  { name: 'Alphabetical (DESC)', sortProperty: 'title' },
-  { name: 'Alphabetical (ACS)', sortProperty: '-title' },
+export const sortList: SortType[] = [
+  { name: 'Popularity (DESC)', sortProperty: SortProperty.RATING },
+  { name: 'Popularity (ACS)', sortProperty: SortProperty.MRATING },
+  { name: 'Price (DESC)', sortProperty: SortProperty.PRICE },
+  { name: 'Price (ACS)', sortProperty: SortProperty.MPRICE },
+  { name: 'Alphabetical (DESC)', sortProperty: SortProperty.TITLE },
+  { name: 'Alphabetical (ACS)', sortProperty: SortProperty.MTITLE },
 ];
 
 const Sort: React.FC = () => {
@@ -29,7 +25,7 @@ const Sort: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const sortName = sort.name;
 
-  const onClickListItem = (i:SortItem) => {
+  const onClickListItem = (i:SortType) => {
     dispatch(setSort(i))
     setOpen(false);
   }

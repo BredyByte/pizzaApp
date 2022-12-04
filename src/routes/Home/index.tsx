@@ -1,3 +1,8 @@
+import React from 'react';
+import qs from 'qs';
+import { useSelector } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import Sort, { sortList } from '../../components/Sort';
 import Categories from '../../components/Categories';
 import Skeleton from '../../components/Skeleton';
@@ -6,13 +11,10 @@ import Pagination from '../../components/Pagination';
 import Search from '../../components/Search';
 import ErrorPage from '../../components/ErrorPage';
 import selectors from '../../store/selectors';
-
-import { useEffect, useRef } from 'react'
-import qs from 'qs';
 import { setCategoryId, setPageCount, setFilters } from '../../store/slices/filterSlice';
 import { fetchPizzas } from '../../store/slices/pizzaSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import {useAppDispatch} from "../../store/store";
+import { SortType } from "../../store/slices/filterSlice";
 
 type StructureItem = {
   id: number,
@@ -34,12 +36,12 @@ type PizzaItems = {
 
 const categoriesArr = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
 
-const Home = () => {
+const Home: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const location = useLocation();
-  const isSearch = useRef(false);
-  const isMounted = useRef(false);
+  const isSearch = React.useRef(false);
+  const isMounted = React.useRef(false);
   const { categoryId, sort, searchValue, pageCount } = useSelector(selectors.filterSelector);
   const { items, status } = useSelector(selectors.pizzaSelector);
 
@@ -53,11 +55,10 @@ const Home = () => {
   const getPizzas = async () => {
     const sortBy = sort.sortProperty.replace('-','');
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
-    const category = categoryId > 0 ? `&category=${categoryId}` : '';
+    const category = Number(categoryId) > 0 ? `&category=${categoryId}` : '';
     const search =  searchValue ? `&search=${searchValue}`: '';
 
     dispatch(
-        // @ts-ignore
         fetchPizzas({
           sortBy,
           order,
@@ -69,7 +70,7 @@ const Home = () => {
     window.scrollTo(0,0);
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     if(isMounted.current) {
       const queryString = qs.stringify({
         sortProperty: sort.sortProperty,
@@ -81,21 +82,23 @@ const Home = () => {
     isMounted.current = true;
   }, [categoryId, sort.sortProperty, pageCount, navigate]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if(location.search) {
       const params = qs.parse(location.search.substring(1));
-      const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
+      const sort =sortList.find(obj => obj.sortProperty === params.sortProperty);
       dispatch(
-        setFilters({
-          ...params,
-          sort
-        })
+          setFilters({
+            ...params,
+            // @ts-ignore
+            sort
+          })
       );
+
       isSearch.current = true
     }
   }, [dispatch]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo(0,0);
     if(!isSearch.current) {
       getPizzas();
@@ -113,11 +116,11 @@ const Home = () => {
           />
           : <>
               <div className="content__top">
-                <Categories categoryId={categoryId} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
+                <Categories categoryId={Number(categoryId)} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
                 <Sort/>
                 <Search />
               </div>
-              <h2 className="content__title">{ categoriesArr[categoryId]}</h2>
+              <h2 className="content__title">{ categoriesArr[Number(categoryId)]}</h2>
               <div className="content__items">
                 {
                   (status === 'loading')
