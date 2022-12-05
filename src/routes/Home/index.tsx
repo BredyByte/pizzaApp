@@ -11,10 +11,10 @@ import Pagination from '../../components/Pagination';
 import Search from '../../components/Search';
 import ErrorPage from '../../components/ErrorPage';
 import selectors from '../../store/selectors';
-import { setCategoryId, setPageCount, setFilters } from '../../store/slices/filterSlice';
-import { fetchPizzas } from '../../store/slices/pizzaSlice';
+import { setCategoryId, setPageCount, setFilters } from '../../store/filter/slice';
+import { fetchPizzas } from '../../store/pizza/slice';
 import {useAppDispatch} from "../../store/store";
-import { SortType } from "../../store/slices/filterSlice";
+import { SortType } from "../../store/filter/types";
 
 type StructureItem = {
   id: number,

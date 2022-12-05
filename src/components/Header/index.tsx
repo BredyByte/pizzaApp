@@ -7,8 +7,17 @@ import selectors from '../../store/selectors';
 
 const Header: React.FC = () => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
-
+  const isMounted = React.useRef(false);
   const totalCount = items.reduce((sum: number, item:{count: number}) => sum + item.count, 0);
+
+  React.useEffect(() => {
+    if(isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [items]);
+
   return (
     <div className="header">
       <div className="container">

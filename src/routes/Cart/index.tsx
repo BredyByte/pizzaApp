@@ -1,6 +1,6 @@
 import ErrorPage from '../../components/ErrorPage';
 import CartItem from '../../components/CartItem';
-import { clearItems } from '../../store/slices/cartSlice';
+import { clearItems } from '../../store/cart/slice';
 import selectors from '../../store/selectors';
 import cartEmptyImg from '../../assets/img/empty-cart.png';
 

@@ -1,4 +1,4 @@
-import {RootState} from "./store";
+import { RootState } from "./store";
 
 const selectors = {
   cartSelector: (state:RootState) => state.cart,

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styles from './Categories.module.scss';
-
 type CategoriesProps = {
     categoryId: number,
     onClickCategory: (i: number) => void,
