@@ -49,10 +49,11 @@ const PizzaPage: React.FC = () => {
   if(!data) {
     return (
         <div className={styles.loadingContainer}>
+          {/*<Lottie animationData={PizzaIconLoading} loop={true} />*/}
           {matches
-              ? <Lottie animationData={PizzaIconLoading} loop={true} />
+              ? <SkeletonCircle cx={170} cy={150} r={150} />
               : <>
-                  <SkeletonCircle/>
+                  <SkeletonCircle cx={150} cy={170} r={140} />
                   <SkeletonText/>
                 </>
           }

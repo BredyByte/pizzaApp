@@ -19,17 +19,23 @@ export const SkeletonText: React.FC = ({props}: any) => (
   </ContentLoader>
 )
 
+type SkeletonCircleProps = {
+  cx: number,
+  cy: number,
+  r: number
+}
 
-export const SkeletonCircle: React.FC  = ({props}: any) => (
-  <ContentLoader
-    speed={2}
-    width={360}
-    height={360}
-    viewBox="0 0 360 360"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-    {...props}
-  >
-    <circle cx="150" cy="170" r="140" />
-  </ContentLoader>
-)
+export const SkeletonCircle: React.FC<SkeletonCircleProps> = ({cx, cy, r}) => {
+  return (
+      <ContentLoader
+          speed={2}
+          width={360}
+          height={360}
+          viewBox="0 0 360 360"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+      >
+        <circle cx={cx} cy={cy} r={r} />
+      </ContentLoader>
+  )
+}

@@ -45,9 +45,13 @@ const Home: React.FC = () => {
   const { categoryId, sort, searchValue, pageCount } = useSelector(selectors.filterSelector);
   const { items, status } = useSelector(selectors.pizzaSelector);
 
-  const onClickCategory = (id: number) => {
+  React.useCallback((id:number) => {
     dispatch(setCategoryId(id));
-  };
+  }, [])
+
+  const onClickCategory =   React.useCallback((id:number) => {
+    dispatch(setCategoryId(id));
+  }, [])
 
   const pizzas = items.map((data:any)=> <PizzaBlock key={data.id} {...data} />);
   const skeletons = [...new Array(4)].map((_,index) => <Skeleton key={index}/>)
@@ -116,8 +120,8 @@ const Home: React.FC = () => {
           />
           : <>
               <div className="content__top">
-                <Categories categoryId={Number(categoryId)} onClickCategory={onClickCategory} categoriesArr={categoriesArr} />
-                <Sort/>
+                <Categories categoryId={Number(categoryId)} onClickCategory={onClickCategory}/>
+                <Sort sort={sort}/>
                 <Search />
               </div>
               <h2 className="content__title">{ categoriesArr[Number(categoryId)]}</h2>

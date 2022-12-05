@@ -170,6 +170,28 @@ body {
             display: none;
           }
         }
+        &:disabled {
+          border-color: #dddddd;
+
+          svg {
+            path {
+              fill: #dddddd;
+            }
+          }
+
+          &:active {
+            transform: none;
+          }
+          
+          &:hover {
+            background-color: white;
+            svg {
+              path {
+                fill: #dddddd;
+              }
+            }
+          }
+        }
       }
 
       b {
