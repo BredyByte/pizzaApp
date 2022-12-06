@@ -1,10 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Lottie from "lottie-react";
 
-import PizzaIconLoading from '../../assets/gif/PizzaPreloader.json';
-import { SkeletonCircle, SkeletonText } from '../../components/PizzaPageSkeleton';
+import { SkeletonCircle, SkeletonText } from '../../components';
 
 import styles from './PizzaPage.module.scss';
 
@@ -49,7 +47,6 @@ const PizzaPage: React.FC = () => {
   if(!data) {
     return (
         <div className={styles.loadingContainer}>
-          {/*<Lottie animationData={PizzaIconLoading} loop={true} />*/}
           {matches
               ? <SkeletonCircle cx={170} cy={150} r={150} />
               : <>

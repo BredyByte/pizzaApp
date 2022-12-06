@@ -6,7 +6,7 @@ type CategoriesProps = {
 }
 const categoriesArr: string[] = ["All","Meat","Vegetarian","Grill","Spicy","Closed"];
 
-const Categories: React.FC<CategoriesProps> = React.memo( ({ categoryId, onClickCategory }) => {
+export const Categories: React.FC<CategoriesProps> = React.memo( ({ categoryId, onClickCategory }) => {
     return (
         <div className="categories">
             <ul>
@@ -22,5 +22,3 @@ const Categories: React.FC<CategoriesProps> = React.memo( ({ categoryId, onClick
         </div>
     );
 })
-
-export default Categories;

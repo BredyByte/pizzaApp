@@ -1,6 +1,6 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import selectors from '../../store/selectors';
 import { addItem } from '../../store/cart/slice';
@@ -17,7 +17,7 @@ type PizzaBlockProps = {
     price: number
 }
 
-const PizzaBlock: React.FC<PizzaBlockProps> = ({id, imageUrl, name, types, sizes, price}) => {
+export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, imageUrl, name, types, sizes, price}) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(selectors.cartItemByIdSelector(id));
 
@@ -90,5 +90,3 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({id, imageUrl, name, types, sizes
         </div>
     )
 }
-
-export default PizzaBlock;

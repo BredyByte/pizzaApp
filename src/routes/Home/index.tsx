@@ -3,18 +3,11 @@ import qs from 'qs';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import Sort, { sortList } from '../../components/Sort';
-import Categories from '../../components/Categories';
-import Skeleton from '../../components/Skeleton';
-import PizzaBlock from '../../components/PizzaBlock';
-import Pagination from '../../components/Pagination';
-import Search from '../../components/Search';
-import ErrorPage from '../../components/ErrorPage';
+import { Skeleton, PizzaBlock, Pagination, Search, ErrorPage, Categories, Sort, sortList } from '../../components';
 import selectors from '../../store/selectors';
 import { setCategoryId, setPageCount, setFilters } from '../../store/filter/slice';
 import { fetchPizzas } from '../../store/pizza/slice';
 import {useAppDispatch} from "../../store/store";
-import { SortType } from "../../store/filter/types";
 
 type StructureItem = {
   id: number,
@@ -89,7 +82,7 @@ const Home: React.FC = () => {
   React.useEffect(() => {
     if(location.search) {
       const params = qs.parse(location.search.substring(1));
-      const sort =sortList.find(obj => obj.sortProperty === params.sortProperty);
+      const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
       dispatch(
           setFilters({
             ...params,

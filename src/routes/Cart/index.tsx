@@ -1,5 +1,4 @@
-import ErrorPage from '../../components/ErrorPage';
-import CartItem from '../../components/CartItem';
+import { ErrorPage, CartItemComp } from '../../components';
 import { clearItems } from '../../store/cart/slice';
 import selectors from '../../store/selectors';
 import cartEmptyImg from '../../assets/img/empty-cart.png';
@@ -54,7 +53,7 @@ const Cart = () => {
         <div className="content__items">
           {
             items.map((data:any) => {
-              return <CartItem key={data.id} {...data} />
+              return <CartItemComp key={data.id} {...data} />
             })
           }
         </div>

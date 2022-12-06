@@ -7,7 +7,7 @@ import selectors from '../../store/selectors';
 
 import styles from './Search.module.scss';
 
-const Search: React.FC = () => {
+export const Search: React.FC = () => {
   const [value, setValue] = React.useState('');
   const dispatch = useDispatch();
   const { searchValue } = useSelector(selectors.filterSelector);
@@ -63,5 +63,3 @@ const Search: React.FC = () => {
 
   )
 }
-
-export default Search

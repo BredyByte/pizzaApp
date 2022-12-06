@@ -9,7 +9,7 @@ type ErrorPageProps = {
     img?: string
 }
 
-const ErrorPage: React.FC<ErrorPageProps> = ({title, img, message, backBtn}) => {
+export const ErrorPage: React.FC<ErrorPageProps> = ({title, img, message, backBtn}) => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>{ title }<span>☹️</span> </h2>
@@ -27,5 +27,3 @@ const ErrorPage: React.FC<ErrorPageProps> = ({title, img, message, backBtn}) => 
     </div>
   )
 }
-
-export default ErrorPage

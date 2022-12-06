@@ -1,11 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import Header from '../../components/Header';
+import { Header } from '../../components';
 
 import '../../scss/app.scss';
 
-const Index: React.FC = () => {
+const Root: React.FC = () => {
   return (
     <div className="wrapper">
       <Header/>
@@ -18,4 +18,4 @@ const Index: React.FC = () => {
   )
 }
 
-export default Index
+export default Root;

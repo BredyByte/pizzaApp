@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/img/pizza-logo.svg';
 import selectors from '../../store/selectors';
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   const { items, totalPrice } = useSelector(selectors.cartSelector);
   const isMounted = React.useRef(false);
   const totalCount = items.reduce((sum: number, item:{count: number}) => sum + item.count, 0);
@@ -71,5 +71,3 @@ const Header: React.FC = () => {
     </div>
   )
 }
-
-export default Header;
