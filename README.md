@@ -13,5 +13,5 @@
 ## Application Functionality
 1) You can sort pizzas by tags or filter by ingredients
 2) Add pizzas to the cart and control their number
-3) By clicking on the pizza you can see its description and a set of ingredients
+3) By clicking on each pizza you can see its description and a set of ingredients
 
