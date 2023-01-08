@@ -5,8 +5,8 @@
 1)React - UI. \
 2)[MockApi](https://mockapi.io/) - Api \
 3)Scss modules - styles \
-4)[React Router](https://reactrouter.com/en/main) To navigate through the app.\
-5)[Redux](https://es.redux.js.org/) State Manager \
+4)[React Router](https://reactrouter.com/en/main) - To navigate through the app.\
+5)[Redux](https://es.redux.js.org/) - State Manager \
 6)Redux Thunk - Middleware \
 7)TypeScript - Programming language
 
